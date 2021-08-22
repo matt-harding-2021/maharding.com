@@ -39,5 +39,5 @@ import Nav from "@/components/nav/Nav.vue"
   }
 })
 
-export default class About extends Vue {}
+export default class View extends Vue {}
 </script>
