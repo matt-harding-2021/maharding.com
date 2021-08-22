@@ -1,14 +1,14 @@
 <template>
-  <div :style="{height: sizing.height, width: sizing.width}" class='is-relative overflow-hidden'>
-    <button v-on:click="prev()" class="is-absolute left-10 top-50 z-1">
+  <div :style="{height: sizing.height, width: sizing.width}" class='is-relative is-flex justify-between align-center overflow-hidden'>
+    <button v-on:click="prev()" class="z-1">
       <span>prev</span>
     </button>
-    <button v-on:click="next()" class="is-absolute left-90 top-50 z-1">
+    <button v-on:click="next()" class="z-1">
       <span>next</span>
     </button>
     <transition :name="reverse? 'prev-slide' : 'next-slide'" 
     v-for="(n, i) in length" :key="i"
-    class="h-100 w-100 is-relative overflow-hidden">
+    class="h-100 w-100 is-absolute top-0">
       <slot :name="i" v-if="i == currentIndex"></slot>
     </transition>
   </div>
@@ -46,6 +46,10 @@ import { Options, Vue } from 'vue-class-component';
   },
   props: {
     media: String,
+    length: {
+      type: Number,
+      required: true
+    },
     height: {
       type: String,
       default: 100 + '%'
@@ -53,10 +57,6 @@ import { Options, Vue } from 'vue-class-component';
     width: {
       type: String,
       default: 100 + '%'
-    },
-    length: {
-      type: Number,
-      required: true
     },
   },
   data() {

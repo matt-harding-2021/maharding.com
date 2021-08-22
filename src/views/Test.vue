@@ -1,11 +1,13 @@
 <template>
   <View :media="media">
     <p>Test</p>
-    <Slide :height="50 + '%'" :width="50 + '%'" :length="4">
-      <template #0><span :style="{position: 'absolute', border: 'solid 3px red', boxSizing: 'border-box'}">0</span></template>
-      <template #1><span :style="{position: 'absolute', border: 'solid 3px green', boxSizing: 'border-box'}">1</span></template>
-      <template #2><span :style="{position: 'absolute', border: 'solid 3px blue', boxSizing: 'border-box'}">2</span></template>
-      <template #3><span :style="{position: 'absolute', border: 'solid 3px black', boxSizing: 'border-box'}">3</span></template>
+    <Slide :length="2" :height="100 + '%'" :width="100 + '%'">
+      <template #0>
+        <div :style="{border: 'solid 3px red', boxSizing: 'border-box'}" />
+      </template>
+      <template #1>
+        <div :style="{border: 'solid 3px green', boxSizing: 'border-box'}" />
+      </template>
     </Slide>
   </View>
 </template>
