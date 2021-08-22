@@ -1,0 +1,23 @@
+/* Background */
+.background-none {background: none;}
+
+/* Background Colour */
+
+
+/* Border */
+.border-none {border: none;}
+
+/* Box Shadow - https://html-css-js.com/css/generator/box-shadow/ - "-webkit-box-shadow:" */
+.shadow-5  {box-shadow: 0px 0px 5px 0px #000000;}
+.shadow-10 {box-shadow: 0px 0px 10px 0px #000000;}
+.shadow-15 {box-shadow: 0px 0px 15px 0px #000000;}
+
+/* Box Shadow Left */
+.shadow-left-5  {box-shadow: -5px 0px 5px -5px #000000;}
+.shadow-left-10 {box-shadow: -10px 0px 10px -10px #000000;}
+.shadow-left-15 {box-shadow: -15px 0px 15px -15px #000000;}
+
+/* Box Shadow Right */
+.shadow-right-5   {box-shadow: 5px 0px 5px -5px #000000;}
+.shadow-right-10  {box-shadow: 10px 0px 10px -10px #000000;}
+.shadow-right-15  {box-shadow: 15px 0px 15px -15px #000000;}
