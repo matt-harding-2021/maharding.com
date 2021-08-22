@@ -1,10 +1,10 @@
 <template>
   <div :style="{height: sizing.height, width: sizing.width}" class='is-relative is-flex justify-between align-center overflow-hidden'>
-    <button v-on:click="prev()" class="z-1">
-      <span>prev</span>
+    <button v-on:click="prev()" class="h-25 w-5 z-1 ml-5 background-none border-none">
+      <div class="h-100 w-100 arrow-left" />
     </button>
-    <button v-on:click="next()" class="z-1">
-      <span>next</span>
+    <button v-on:click="next()" class="h-25 w-5 z-1 mr-5 background-none border-none">
+      <div class="h-100 w-100 arrow-right" />
     </button>
     <transition :name="reverse? 'prev-slide' : 'next-slide'" 
     v-for="(n, i) in length" :key="i"

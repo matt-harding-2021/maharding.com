@@ -1,8 +1,41 @@
-.italic {font-style: italic;}
-.bold {font-weight: bold;}
-.underlined {text-decoration: underline;}
-.decoration-none {text-decoration: none;}
+/* Alignment */
+.text-left   {text-align: left;}
+.text-right  {text-align: right;}
+.text-center {text-align: center;}
 
-.text-left {text-align: left;}
-.text-right {text-align: right;}
-.text-centered {text-align: center;}
+/* Decoration */
+.underlined {text-decoration: underline;}
+
+/* Style */
+.italic {font-style: italic;}
+
+/* Weight */
+.bold       {font-weight: bold;}
+.weight-100 {font-weight: 100;}
+.weight-200 {font-weight: 200;}
+.weight-300 {font-weight: 300;}
+.weight-400 {font-weight: 400;}
+.weight-500 {font-weight: 500;}
+.weight-600 {font-weight: 600;}
+.weight-700 {font-weight: 700;}
+.weight-800 {font-weight: 800;}
+.weight-900 {font-weight: 900;}
+
+/* Sizing */
+.font-8  {font-size: 8px;}
+.font-10 {font-size: 10px;}
+.font-12 {font-size: 12px;}
+.font-14 {font-size: 14px;}
+.font-16 {font-size: 16px;}
+.font-18 {font-size: 18px;}
+.font-20 {font-size: 20px;}
+.font-22 {font-size: 22px;}
+.font-24 {font-size: 24px;}
+.font-26 {font-size: 26px;}
+.font-28 {font-size: 28px;}
+.font-30 {font-size: 30px;}
+.font-32 {font-size: 32px;}
+.font-34 {font-size: 34px;}
+.font-36 {font-size: 36px;}
+.font-38 {font-size: 38px;}
+.font-40 {font-size: 40px;}

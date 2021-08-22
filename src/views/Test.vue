@@ -1,6 +1,5 @@
 <template>
   <View :media="media">
-    <p>Test</p>
     <Slide :length="2" :height="100 + '%'" :width="100 + '%'">
       <template #0>
         <div :style="{border: 'solid 3px red', boxSizing: 'border-box'}" />
