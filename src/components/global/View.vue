@@ -1,5 +1,5 @@
 <template>
-  <div class='is-flex is-column h-100 w-100'>
+  <div class='flex flex-col h-full w-full'>
     <Nav v-if="nav"/>
     <slot></slot>
   </div>

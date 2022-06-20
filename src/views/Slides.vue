@@ -1,25 +1,22 @@
 <template>
   <View :media="media">
-    <Slide :length="6" :height="100 + '%'" :width="100 + '%'">
+    <div class='
+      flex
+      h-1/2 w-1/2
+      p-4
+    '>
+    <Slide :length="3" :height="100 + '%'" :width="100 + '%'">
       <template #0>
-        <div :style="{border: 'solid 3px red', boxSizing: 'border-box'}" />
+        <span class='text-2xl'>1</span>
       </template>
       <template #1>
-        <div :style="{border: 'solid 3px green', boxSizing: 'border-box'}" />
+        <span class='text-2xl'>2</span>
       </template>
       <template #2>
-        <div :style="{border: 'solid 3px blue', boxSizing: 'border-box'}" />
-      </template>
-      <template #3>
-        <div :style="{border: 'solid 3px red', boxSizing: 'border-box'}" />
-      </template>
-      <template #4>
-        <div :style="{border: 'solid 3px green', boxSizing: 'border-box'}" />
-      </template>
-      <template #5>
-        <div :style="{border: 'solid 3px blue', boxSizing: 'border-box'}" />
+        <span class='text-2xl'>3</span>
       </template>
     </Slide>
+    </div>
   </View>
 </template>
 

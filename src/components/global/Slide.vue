@@ -1,14 +1,41 @@
 <template>
-  <div :style="{height: sizing.height, width: sizing.width}" class='is-relative is-flex justify-between align-center overflow-hidden'>
-    <button v-on:click="prev()" class="h-25 w-5 z-1 ml-5 background-none border-none">
-      <div class="h-100 w-100 arrow-left" />
+  <div
+  :style="{height: sizing.height, width: sizing.width}"
+  class='
+    relative
+    flex
+    justify-between items-center
+    overflow-hidden
+    shadow
+  '>
+    <button
+    v-on:click="prev()"
+    class='
+      h-32 w-8
+      z-10 ml-8
+    '>
+      <div class='
+        h-full w-full
+        arrow-left
+      ' />
     </button>
-    <button v-on:click="next()" class="h-25 w-5 z-1 mr-5 background-none border-none">
-      <div class="h-100 w-100 arrow-right" />
+    <button
+    v-on:click="next()"
+    class='
+      h-32 w-8
+      z-10 mr-8
+    '>
+      <div class='
+        h-full w-full
+        arrow-right
+      ' />
     </button>
     <transition :name="reverse? 'prev-slide' : 'next-slide'" 
     v-for="(n, i) in length" :key="i"
-    class="h-100 w-100 is-absolute top-0">
+    class='
+      absolute inset-0
+      border
+    '>
       <slot :name="i" v-if="i == currentIndex"></slot>
     </transition>
   </div>
@@ -89,6 +116,7 @@ import { Options, Vue } from 'vue-class-component';
         let vm = this;
         if(val < 0) vm.currentIndex = 0;
         else if(val > vm.length - 1) vm.currentIndex = vm.length - 1;
+        console.log('val: ', val)
       }
     }
   },
