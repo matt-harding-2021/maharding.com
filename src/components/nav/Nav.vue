@@ -1,7 +1,8 @@
 <template>
   <div class="w-100 mx-auto is-flex justify-evenly">
     <NavLink :label="'Home'" :path="'/'"/>
-    <NavLink :label="'Test'" :path="'/test'"/>
+    <NavLink :label="'Slides'" :path="'/slides'"/>
+    <NavLink :label="'Gallery'" :path="'/gallery'"/>
   </div>
 </template>
 <script lang="ts">
