@@ -5,6 +5,7 @@
 <style>
 @import './assets/styling/tailwind.css';
 /* temp css */
+@import './assets/styling/main.css';
 @import './assets/styling/icons.css';
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 </style>

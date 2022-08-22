@@ -2,22 +2,23 @@
   <View :media="media">
     <div class='
       flex-1 flex flex-wrap
+      justify-center
       p-8 gap-8
+
+      custom-image
     '>
-      <!-- tailwind doesn't include classes of dynamic elements -->
+    
       <div v-for="item in items" :key="item.id"
       class='
-        flex-0
+        flex
+        w-64 h-64
+        p-8
+        rounded-xl border
+        custom
       '>
-        <!-- tailwind does include classes of the defined elements within -->
-        <div class='
-          basis-1/3
-          h-64
-          border
-          bg-red-600
-        '>
-        </div>
+        <div class='flex-1 rounded border bg-white' />
       </div>
+
     </div>
   </View>
 </template>
