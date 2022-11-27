@@ -12,7 +12,6 @@ body {margin: 0;}
   overflow: hidden;
 
   display: flex;
-
 }
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
@@ -31,6 +30,7 @@ br {
   height: 1.5rem;
 }
 
+/* Glassmorphism */
 .glass {
   background: linear-gradient(
     115deg,
@@ -61,28 +61,25 @@ br {
   backdrop-filter: blur(1px);
 }
 
-.v-enter-active,
+/* Slide Animation */
+.v-enter-active {
+  position: absolute;
+  transition-delay: 250ms;
+}
 .v-leave-active {
-  /* transition: opacity 0.5s ease; */
   position: absolute;
 }
-
 .animate-up.v-enter-from {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(15vh);
 }
 .animate-up.v-leave-to {
-  /* opacity: 0; */
   opacity: 0;
-  transform: translateY(-50px);
 }
-
 .animate-down.v-enter-from {
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(-15vh);
 }
 .animate-down.v-leave-to {
-  /* opacity: 0; */
   opacity: 0;
-  transform: translateY(50px);
 }

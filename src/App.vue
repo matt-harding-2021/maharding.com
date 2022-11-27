@@ -21,10 +21,20 @@ import backgroundImg from "@/assets/images/backgrounds/white-paper.webp";
   inject: ["mq"],
   components: {
   },
+  props: {
+  },
   data() {
     return {
       backgroundImg
     };
+  },
+  computed: {
+  },
+  methods: {
+  },
+  watch: {
+  },
+  mounted() {
   },
 })
 
