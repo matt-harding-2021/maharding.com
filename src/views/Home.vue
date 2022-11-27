@@ -2,176 +2,38 @@
   <View :nav="false" :media="media">
     <button class="absolute z-10"
     :ref="(x) => {testSetRef(x)}"
-    :onClick="testGetRef">console.log</button><!-- targetSlide -->
-    <div :class="`
-      ${
-        currentSlide < 1 ? 'top-full opacity-0' :
-        currentSlide > 1 ? '-top-full opacity-0' :
-        ''
-      }
-      absolute inset-0
-      flex flex-col
-      h-full
-      justify-center items-center
-      gap-16
-      transition-all duration-800
-    `">
-      <h1 class='text-2xl tracking-0.15'> Hi, I'm Matthew Harding </h1>
-      <div class='
-        flex
-        items-center
-        gap-4
-        cursor-pointer
-      '
-      :onClick="() => changeSlide(2)">
-        <p class='text-sm tracking-0.2 leading-3'> Find out more about me </p>
-        <div class='arrow-right w-3 h-3' />
-      </div>
-    </div>
-
-    <div :class="`
-      ${
-        currentSlide < 2 ? 'top-full opacity-0' :
-        currentSlide > 2 ? '-top-full opacity-0' :
-        ''
-      }
-      absolute inset-0
-      flex flex-col
-      h-full
-      justify-center items-center
-      gap-16
-      transition-all duration-800
-    `">
-      <h2 class='text-lg tracking-0.2'> Frontend Developer </h2>
-      <div class='
-        flex
-        items-center
-        gap-12
-      '
-      :onScroll="(e) => scrollFunction(e)">
-        <p class='flex-1 w-96'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique eros vitae vehicula commodo.
-          <br />
-          Donec facilisis sed quam vel rutrum.
-          <br />
-          Duis efficitur dui lectus. In hac habitasse platea dictumst. 
-        </p>
-        <div class='
-          flex flex-wrap
-          w-96
-          justify-center
-          p-12 gap-12
-          transition-all duration-500
-          glass
-        '>
-          <a href="https://www.figma.com/about/" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoFigma' />
-          </a>
-          <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoJS' />
-          </a>
-          <a href="https://www.solidjs.com/" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoSolid' />
-          </a>
-          <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoTailwind' />
-          </a>
-          <a href="https://vuejs.org/" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoVue' />
-          </a>
-        </div>
-      </div>
-    </div>
-
+    :onClick="testGetRef">console.log</button><!-- targetSlide,  -->
     
-    <div :class="`
-      ${
-        currentSlide < 3 ? 'top-full opacity-0' :
-        currentSlide > 3 ? '-top-full opacity-0' :
-        ''
-      }
-      absolute inset-0
-      flex flex-col
-      h-full
-      justify-center items-center
-      gap-16
-      transition-all duration-800
-    `">
-      <h2 class='text-lg tracking-0.2'> Current Work </h2>
-      <div class='
-        flex
-        items-center
-        gap-12
-      '
-      :onScroll="(e) => scrollFunction(e)">
-        <p class='flex-1 w-96'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique eros vitae vehicula commodo.
-          <br />
-          Donec facilisis sed quam vel rutrum.
-          <br />
-          Duis efficitur dui lectus. In hac habitasse platea dictumst. 
-        </p>
-        <div class='
-          flex flex-wrap
-          w-96
-          justify-center
-          p-12 gap-12
-          transition-all duration-500
-          glass
-        '>
-          <a href="https://www.finlight.com/" target="_blank" rel="noreferrer noopener">
-            <img class='w-12 h-12' :src='logoFigma' />
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div :class="`
-      ${
-        currentSlide < 4 ? 'top-full opacity-0' :
-        currentSlide > 4 ? '-top-full opacity-0' :
-        ''
-      }
-      absolute inset-0
-      flex flex-col
-      h-full
-      justify-center items-center
-      gap-16
-      transition-all duration-800
-    `">
-      <h2 class='text-lg tracking-0.2'> Test </h2>
-      <div class='
-        flex
-        items-center
-        gap-12
-      '
-      :onScroll="(e) => scrollFunction(e)">
-        <p class='flex-1 w-96'>
-          Donec facilisis sed quam vel rutrum.
-        </p>
-        <div class='
-          flex flex-wrap
-          w-96
-          justify-center
-          p-12 gap-12
-          transition-all duration-500
-          glass
-        '>
-        </div>
-      </div>
-    </div>
+    <!-- <component :class="`-top-full opacity-0`"
+    :is="prevSlide" /> -->
 
+    <!-- <keep-alive> -->
+      <transition>
+    
+        <component :class="`
+          ${ animationClass }
+          transition-all duration-500
+        `"
+        :is="currentSlide"
+        @prevSlide="changeSlide(-1)"
+        @nextSlide="changeSlide(1)" /><!-- :is="currentSlide" -->
+        <!-- ${
+          slides.indexOf(currentSlide) < slides.indexOf(Welcome) ? 'top-full opacity-0' :
+          slides.indexOf(currentSlide) > slides.indexOf(Welcome) ? '-top-full opacity-0' :
+          ''
+        } -->
+
+      </transition>
+    <!-- </keep-alive> -->
   </View>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import View from '@/components/global/View.vue';
-import logoFigma from "@/assets/images/logos/figma_icon.svg";
-import logoJS from "@/assets/images/logos/javascript_icon.svg";
-import logoSolid from "@/assets/images/logos/solidjs_icon.svg";
-import logoTailwind from "@/assets/images/logos/tailwind_icon.svg";
-import logoVue from "@/assets/images/logos/vue-js_icon.svg";
+import Welcome from '@/components/slides/Welcome.vue';
+import Skills from '@/components/slides/Skills.vue';
+import CurrentWork from '@/components/slides/CurrentWork.vue';
 
 @Options({
   components: {
@@ -182,47 +44,60 @@ import logoVue from "@/assets/images/logos/vue-js_icon.svg";
   },
   data() {
     return {
-      logoFigma,
-      logoJS,
-      logoSolid,
-      logoTailwind,
-      logoVue,
+      slides: [
+        Welcome,
+        Skills,
+        CurrentWork,
+        Skills,
+        CurrentWork
+      ],
+      currentSlide: Welcome,
+      prevSlide: null,
 
-      currentSlide: 1,
       isAnimating: false,
 
       refTest: null,
 
       xDown: 0,
-      yDown: 0
+      yDown: 0,
+
+      animationClass: 'animate-up',
     };
   },
   methods: {
     testSetRef: function(x: null) {
-      this.refTest=x;
+      this.refTest = x;
     },
     testGetRef: function() {
-      /* console.log(this.refTest) */
-      console.log(this.currentSlide)
+      console.log('Ref Test:', this.refTest)
+      console.log('Slide:', this.currentSlide)
     },
-    changeSlide(slide: number) {
+    changeSlide(x: number) {
       let vm = this;
-      if(!vm.isAnimating && !(slide<0 || slide>4)) {
-        vm.isAnimating = true;
-        /* vm.currentSlide = 0; */
-        vm.currentSlide = slide;
-        /* setTimeout(() => { */
-          /* vm.currentSlide = vm.targetSlide; */
+      console.log(vm.slides.indexOf(vm.currentSlide))
+      if(!vm.isAnimating) {
+        if(
+          (x > 0 && (vm.slides.indexOf(vm.currentSlide) + 1 < vm.slides.length))
+          ||
+          (x < 0 && (vm.slides.indexOf(vm.currentSlide) - 1 >= 0))
+        ) {
+          vm.isAnimating = true;
+
+          (x > 0) ? vm.animationClass = 'animate-up' : vm.animationClass = 'animate-down';
+
+          vm.currentSlide = vm.slides[vm.slides.indexOf(vm.currentSlide) + x];
+          /* vm.prevSlide = vm.slides[vm.slides.indexOf(vm.currentSlide) -1]; */
+          vm.isAnimating = false;
           setTimeout(() => {
             vm.isAnimating = false;
-          }, 800);
-        /* }, 800); */
+          }, 500);
+        }
       }
     },
     scrollFunction(e: {deltaY: 0}) {
       let vm = this;
       console.log(e)
-      vm.changeSlide(vm.currentSlide + Math.sign(e.deltaY))
+      vm.changeSlide(Math.sign(e.deltaY))
     },
 
 
@@ -256,9 +131,9 @@ import logoVue from "@/assets/images/logos/vue-js_icon.svg";
             }
         } else {
             if ( yDiff > 0 ) {
-              this.changeSlide(this.currentSlide + Math.sign(yDiff))
+              this.changeSlide(Math.sign(yDiff))
             } else { 
-              this.changeSlide(this.currentSlide + Math.sign(yDiff))
+              this.changeSlide(Math.sign(yDiff))
             }
         }
         /* reset values */
@@ -278,7 +153,7 @@ import logoVue from "@/assets/images/logos/vue-js_icon.svg";
     let vm = this;
     window.addEventListener('mousewheel', (e) => vm.scrollFunction(e));
     /* window.addEventListener('touchmove', (e) => vm.scrollFunction(e)); */
-    window.addEventListener('touchstart', vm.handleTouchStart, false);        
+    window.addEventListener('touchstart', vm.handleTouchStart, false);
     window.addEventListener('touchmove', vm.handleTouchMove, false);
   },
   unmount() {

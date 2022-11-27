@@ -60,3 +60,29 @@ br {
     16px 32px 32px -32px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(1px);
 }
+
+.v-enter-active,
+.v-leave-active {
+  /* transition: opacity 0.5s ease; */
+  position: absolute;
+}
+
+.animate-up.v-enter-from {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.animate-up.v-leave-to {
+  /* opacity: 0; */
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.animate-down.v-enter-from {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+.animate-down.v-leave-to {
+  /* opacity: 0; */
+  opacity: 0;
+  transform: translateY(50px);
+}
