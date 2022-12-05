@@ -18,3 +18,9 @@
   background-size: contain;
   transform: rotate(-90deg);
 }
+.mail_icon {
+  background-image: url('../icons/mail_icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

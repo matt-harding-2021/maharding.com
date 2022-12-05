@@ -8,8 +8,9 @@ createApp(App)
   .use(Vue3Mq, {
     breakpoints: {
       mobile: 0,
-      tablet: 550,
-      desktop: 1250,
+      tablet: 480,
+      laptop: 768,
+      desktop: 1024,
     },
     defaultBreakpoint: 'mobile' // Mobile First
   })

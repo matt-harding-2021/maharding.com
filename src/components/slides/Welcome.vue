@@ -2,14 +2,14 @@
   <div :class="`
     absolute inset-0
     flex flex-col
-    h-full
     justify-center items-center
-    gap-16
+    gap-12 md:gap-16
   `">
-    <h1 class='text-2xl tracking-0.15'> Hi, I'm Matthew Harding </h1>
+    <h1 class='text-xl md:text-2xl tracking-0.15'> Hi, I'm Matthew Harding </h1>
     <div class='
       flex
       items-center
+      h-8
       gap-4
       cursor-pointer
     '
@@ -35,12 +35,6 @@ import { Options, Vue } from 'vue-class-component';
   methods: {
   },
   watch: {
-    /* media: {
-      immediate: true,
-      handler(val) {
-        console.log(val);
-      }
-    } */
   },
   mounted() {
   },

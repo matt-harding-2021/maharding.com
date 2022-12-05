@@ -1,27 +1,54 @@
 <template>
   <View :nav="false" :media="media">
-    <button class="absolute z-10"
+    <!-- <button class="absolute z-10"
     :ref="(x) => test_ref = x"
-    :onClick="() => console.log(test_ref)">Ref</button>
+    :onClick="() => window.alert(test_ref)">Ref</button> -->
     <transition>
       <component :class="`
         ${ animationClass }
         transition-all duration-500 ease-out
       `"
       :is="currentSlide"
+      :media="media"
       @prevSlide="changeSlide(-1)"
       @nextSlide="changeSlide(1)" />
     </transition>
+    <div class='
+      absolute right-0 md:inset-y-0 z-10
+      flex flex-col
+      justify-center
+      gap-4 md:gap-6 py-4
+    '>
+      <button class="
+        flex
+        justify-end items-center
+        h-8 md:h-6 w-8 md:w-6
+      "
+      v-for="(page, i) in pagesLength" :key="i"
+      @click="() => paginationClick(i)">
+        <span :class="`
+          ${ paginationActive(i) ? 'bg-grey' : 'bg-grey-light' }
+          transition-colors duration-1000 ease-out
+          h-2 w-2
+          rounded
+        `" />
+      </button>
+    </div>
   </View>
 </template>
 
 <script lang="ts">
+import { markRaw } from 'vue';
 import { Options, Vue } from 'vue-class-component';
-import View from '@/components/global/View.vue';
-import Welcome from '@/components/slides/Welcome.vue';
-import Skills from '@/components/slides/Skills.vue';
-import CurrentWork from '@/components/slides/CurrentWork.vue';
 import ScrollEvent from '@/classes/ScrollEvent'
+import View from '@/components/global/View.vue';
+
+const slides = [
+  markRaw(require('@/components/slides/Welcome.vue').default),
+  markRaw(require('@/components/slides/Skills.vue').default),
+  markRaw(require('@/components/slides/CurrentWork.vue').default),
+  markRaw(require('@/components/slides/Contact.vue').default),
+]
 
 @Options({
   components: {
@@ -32,14 +59,8 @@ import ScrollEvent from '@/classes/ScrollEvent'
   },
   data() {
     return {
-      slides: [
-        Welcome,
-        Skills,
-        CurrentWork,
-        Skills,
-        CurrentWork
-      ],
-      currentSlide: Welcome,
+      pagesLength: slides.length,
+      currentSlide: slides[0],
       isAnimating: false,
       animationClass: 'animate-up',
       scrollEvent: new ScrollEvent(null),
@@ -48,23 +69,29 @@ import ScrollEvent from '@/classes/ScrollEvent'
     };
   },
   computed: {
-    console: () => console 
+    console: () => console,
+    window: () => window,
   },
   methods: {
+    paginationClick(i: number) {
+      let vm = this;
+      vm.changeSlide(i - slides.indexOf(vm.currentSlide))
+    },
+    paginationActive(i: number): boolean {
+      let vm = this;
+      return(i === slides.indexOf(vm.currentSlide));
+    },
     changeSlide(x: number) {
       let vm = this;
-      let targetSlide = vm.slides.indexOf(vm.currentSlide) + x;
+      let targetSlide = slides.indexOf(vm.currentSlide) + x;
       if(
         !vm.isAnimating &&
         targetSlide >= 0 &&
-        targetSlide < vm.slides.length
+        targetSlide < slides.length
       ) {
         vm.isAnimating = true;
-
         vm.animationClass = (x > 0) ? 'animate-up' : 'animate-down';
-
-        vm.currentSlide = vm.slides[vm.slides.indexOf(vm.currentSlide) + x];
-
+        vm.currentSlide = slides[slides.indexOf(vm.currentSlide) + x];
         setTimeout(() => {
           vm.isAnimating = false;
         }, 500);
