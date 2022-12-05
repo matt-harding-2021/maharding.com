@@ -31,10 +31,17 @@ import backgroundImg from "@/assets/images/backgrounds/white-paper.webp";
   computed: {
   },
   methods: {
+    setAppHeight() {
+      const doc = document.documentElement;
+      doc.style.setProperty('height', `${window.innerHeight}px`);
+    }
   },
   watch: {
   },
   mounted() {
+    let vm = this;
+    window.addEventListener('resize', vm.setAppHeight);
+    vm.setAppHeight();
   },
 })
 
