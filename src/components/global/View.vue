@@ -1,7 +1,15 @@
 <template>
-  <div class='flex flex-col h-full w-full'>
-    <Nav v-if="nav"/>
-    <slot></slot>
+  <div class='
+    container
+    flex-1 flex
+  '>
+    <div class='
+      relative
+      flex-1 flex flex-col
+    '>
+      <Nav v-if="nav"/>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -27,13 +35,12 @@ import Nav from "@/components/nav/Nav.vue"
   methods: {
   },
   watch: {
-    media: {
+    /* media: {
       immediate: true,
       handler(val) {
         console.log(val);
       },
-      /* deep: true */
-    }
+    } */
   },
   mounted() {
   }

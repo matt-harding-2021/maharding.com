@@ -16,11 +16,6 @@ const routes = [
     name: 'Gallery',
     component: () => import('@/views/Gallery.vue')
   },
-  /* {
-    path: '/',
-    name: '',
-    component: () => import('@/views/.vue')
-  }, */
 ]
 
 const router = createRouter({
