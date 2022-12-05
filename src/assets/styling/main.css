@@ -4,8 +4,11 @@ html {
 }
 body {
   height: 100%;
+  width: 100%;
   margin: 0;
-  overscroll-behavior: contain;
+  position: fixed;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 #app {
   -webkit-font-smoothing: antialiased;
